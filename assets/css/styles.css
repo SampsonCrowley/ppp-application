@@ -33,10 +33,13 @@ hr {
     width: 35%;
 }
 
-.cvb-dropzone {
+.cust-dropzone {
     border: 2px dashed #28323E;
     background-color: #EEEEEE;
     width: 100%;
-    height: 200px;
-    opacity: 0.5;
+    min-height: 200px;
 }
+
+/* .dropzone .dz-preview .dz-error-message {
+    top: 150px!important;
+} */

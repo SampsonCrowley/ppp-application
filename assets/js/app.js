@@ -209,5 +209,5 @@ form.addEventListener("click", function(ev){
     var target = ev.target
     console.log(ev, target, target===submitButton)
     if(target === submitButton) submitForm()
-    else if(target === cancelButton) clearForm();
+    else if(target === cancelButton) clearForm()
 });

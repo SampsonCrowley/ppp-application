@@ -21,6 +21,15 @@
                         </div>
                         <fieldset>
                             {{ form.csrf_token }}
+                            <!-- Instructions -->
+                            <legend style="color: #28323E;"><i>Application Instructions</i></legend>
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <a class="a-click" href="https://www.sba.gov/sites/default/files/2021-01/PPP%20Second%20Draw%20Borrower%20Application%20Form%20%281.8.2021%29.pdf">Here</a>
+                                </div>
+                            </div>
+
                             <!-- APPLICANT FIELDS -->
                             <legend style="color: #28323E;"><i>Applicant Information</i></legend>
                             <hr>
@@ -70,16 +79,24 @@
                             <!-- UPLOAD SECTION -->
                             <legend style="color: #28323E;"><i>Upload Files</i></legend>
                             <hr>
-                            <div class="row mb-4">
+                            <div class="row">
                                 <div class="col">
-                                    <div class="dropzone cvb-dropzone" id="cvb-dropzone">
-                                        <div class="fallback">
-                                            <input name="files[]" type="file" multiple>
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <h1><i class="fas fa-cloud-upload-alt"></i></h1>
-                                            <p>Drag and drop a file here or click to browse</p>    
-                                        </div>
+                                    <h5>File Requirements</h5>
+                                    <ul>
+                                        <li>File(s) must be a valid image or PDF format</li>
+                                        <li>File(s) must not be larger than 5MB in size</li>
+                                        <li>You cannot upload more than 10 files in one submission</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="dropzone cvb-dropzone" id="cvb-dropzone">
+                                    <!-- <div class="fallback">
+                                        <input name="files[]" type="file" multiple>
+                                    </div> -->
+                                    <div class="dz-message">
+                                        <h1><i class="fas fa-cloud-upload-alt"></i></h1>
+                                        <p>Drag and drop a file here or click to browse</p>
                                     </div>
                                 </div>
                             </div>
