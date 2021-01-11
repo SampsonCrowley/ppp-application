@@ -1,0 +1,13 @@
+{% macro render_field(field) %}
+
+{{ field.label(class_="col-form-label") }}
+{{ field(class_="form-control", **kwargs)|safe }}
+{% for error in field.errors %}
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-danger">
+            {{ error }}
+        </a>
+    </div>
+{% endfor %}
+
+{% endmacro %}

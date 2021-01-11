@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="shortcut icon" href="{{static_url_for('static', filename='build/img/favicon.ico') }}">
+    <title>
+      {% block page_title %} 
+      ppp_application
+       {% endblock %}
+    </title>
+    <meta
+      name="description"
+      content="{% block meta_description %}{% endblock %}"
+    />
+    <meta name="author" content="{% block meta_author %}{% endblock %}" />
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ static_url_for('static', filename='build/main_css.bundle.css') }}"
+    />
+
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+      <!-- TOP CONTENT BAR -->
+      <div class="container-fluid cvb-navbar navbar">
+          <div class="row justify-content-center mt-4 mb-4">
+              <div class="col-lg-12">
+                  <span class="mt-2 mb-2 logo">
+                      <img src="{{ url_for('static', filename='files/cvb.png') }}" alt="Cache Valley Bank Logo" />
+                  </span>    
+              </div>
+          </div>
+      </div>
+
+      <!-- MAIN -->
+      <main role="main">
+        {% block content %}{% endblock %}
+      </main>
+
+      <!-- JavaScript at the bottom for fast page loading -->
+      <script src="{{ static_url_for('static', filename='build/main_js.bundle.js') }}"></script>
+      {% block js %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,111 @@
+{% extends "public/templates/public_template.html" %}
+
+{% from "macros/_render_fields.html" import render_field %}
+
+{% block title %}Payment Protection Plan Application{% endblock %}
+
+{% block main %}
+    <div class="container form-wrapper" role="main">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card bs-component cvb-card">
+                    <div class="card-header text-center">
+                        <h2>Payment Protection Plan: Round 2 Application</h2>
+                    </div>
+                    <form action="{{url_for('upload')}}" class="form px-5 py-3" method="POST" enctype="multipart/form-data" id="application-form">
+                        <div class="row">
+                            <div class="col">
+                                <div id="form-errors"></div>
+                            </div>
+                        </div>
+                        <fieldset>
+                            {{ form.csrf_token }}
+                            <!-- APPLICANT FIELDS -->
+                            <legend style="color: #28323E;"><i>Applicant Information</i></legend>
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col-lg-6 mb-2">
+                                    {{ render_field(form.firstName) }}
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    {{ render_field(form.lastName) }}
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    {{ render_field(form.email) }}
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    {{ render_field(form.phone) }}
+                                </div>
+                            </div>
+
+                            <!-- BUSINESS FIELDS -->
+                            <legend style="color: #28323E;"><i>Business Information</i></legend>
+                            <hr>
+                            <div class="row mb-2">
+                                <div class="col-lg-8 mb-2">
+                                    {{ render_field(form.business) }}
+                                </div>
+                                <div class="col-lg-4 mb-2">
+                                    {{ render_field(form.startDate) }}
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-lg-8 mb-2">
+                                    {{ render_field(form.tin) }}
+                                </div>
+                                <div class="col-lg-4 mb-2">
+                                    {{ render_field(form.naicsCode) }}
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-8 mb-2">
+                                    {{ render_field(form.loanNumber) }}
+                                </div>
+                                <div class="col-lg-4 mb-2">
+                                    {{ render_field(form.loanOfficer) }}
+                                </div>
+                            </div>
+
+                            <!-- UPLOAD SECTION -->
+                            <legend style="color: #28323E;"><i>Upload Files</i></legend>
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="dropzone cvb-dropzone" id="cvb-dropzone">
+                                        <div class="fallback">
+                                            <input name="files[]" type="file" multiple>
+                                        </div>
+                                        <div class="dz-message needsclick">
+                                            <h1><i class="fas fa-cloud-upload-alt"></i></h1>
+                                            <p>Drag and drop a file here or click to browse</p>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    {{ render_field(form.recaptcha) }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <button type="reset" class="btn btn-secondary" id="cancelButton">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" id="uploadFiles">Submit</button>    
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>    
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+</script>
+
+{% endblock %}
