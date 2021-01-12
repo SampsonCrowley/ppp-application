@@ -1,5 +1,8 @@
 *.py[cod]
 
+# deploy folder
+/.deploy
+
 # C extensions
 *.so
 

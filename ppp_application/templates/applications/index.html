@@ -1,5 +1,17 @@
 {% extends "layout.html" %}
 
+{% block css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ static_url_for('static', filename='build/application_css.bundle.css') }}"
+/>
+{% endblock %}
+
+{% block js %}
+<script src="{{ static_url_for('static', filename='build/application_js.bundle.js') }}"></script>
+{% endblock %}
+
 {% from "macros/_render_fields.html" import render_field %}
 
 {% block title %}Payment Protection Plan Application{% endblock %}
@@ -108,11 +120,11 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <button type="reset" class="btn btn-secondary" id="cancelButton">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="uploadFiles">Submit</button>    
+                                    <button type="submit" class="btn btn-primary" id="uploadFiles">Submit</button>
                                 </div>
                             </div>
                         </fieldset>
-                    </form>    
+                    </form>
                 </div>
             </div>
         </div>

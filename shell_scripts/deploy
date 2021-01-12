@@ -1,0 +1,35 @@
+#! /usr/bin/env bash
+
+script_path=$(realpath $0)
+bin_path=$(dirname $script_path)
+root_path=$(dirname $bin_path)
+deploy_path="$root_path/.deploy"
+
+echo $root_path
+
+rm -rf "$deploy_path"
+
+git clone https://github.com/data-hunt/ppp-application.git "$deploy_path"
+
+pushd "$deploy_path"
+  pushd ppp_application
+    pipenv install --dev
+    pipenv shell
+    npm install
+    npm run build
+  popd
+  cp -a ../.env ./
+  rm -rf ./.github
+  rm -rf ./.git
+  rm -rf ./assets
+  rm -rf ./node_modules
+  rm -rf ./tests
+  rm -rf ./.env.example
+  rm -rf ./.eslintrc
+  rm -rf ./.gitignore
+  rm -rf ./package-lock.json
+  rm -rf ./package.json
+  rm -rf ./README.md
+  rm -rf ./webpack.config.js
+  zip source-code.zip ./* ./.env
+popd
