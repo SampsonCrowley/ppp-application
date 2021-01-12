@@ -22,11 +22,14 @@ module.exports = {
   // configuration
   context: __dirname,
   entry: {
+    application_js: './assets/js/application',
+    application_css: [
+      path.join(__dirname, 'node_modules', 'dropzone', 'dist', 'dropzone.css'),
+    ],
     main_js: './assets/js/main',
     main_css: [
       path.join(__dirname, 'node_modules', '@fortawesome', 'fontawesome-free', 'css', 'all.css'),
       path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.css'),
-      path.join(__dirname, 'node_modules', 'dropzone', 'dist', 'dropzone.css'),
       path.join(__dirname, 'assets', 'css', 'styles.css'),
     ],
   },
@@ -74,7 +77,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
         loader: 'file-loader',
-        options: { context: '${rootAssetPath}&name=[path][name].[ext]' }
+        options: { context: rootAssetPath, name: '[path][name].[ext]' }
       },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: { presets: ["@babel/preset-env"], cacheDirectory: true } },
     ],

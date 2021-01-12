@@ -7,7 +7,47 @@
     "import/prefer-default-export": 0,
     "consistent-return": 0,
     "no-confusing-arrow": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "one-var": 0,
+    "indent": [
+      "error",
+      2,
+      {
+        "VariableDeclarator": "first",
+        "SwitchCase": 1
+      }
+    ],
+    "no-multi-spaces": [
+      "error",
+      {
+        "exceptions": { "VariableDeclarator": true }
+      }
+    ],
+    "quotes": ["warn", "double"],
+    "keyword-spacing": [
+      "error",
+      {
+        "after": false,
+        "before": true,
+        "overrides": {
+          "case": { "after": true },
+          "const": { "after": true },
+          "else": { "after": true },
+          "return": { "after": true },
+          "try": { "after": true }
+        }
+      }
+    ],
+    "space-before-function-paren": [ "error", "never" ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [ "error", "debug" ]
+      }
+    ],
+    "no-plusplus": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off"
   },
   "env": {
     "browser": true,
